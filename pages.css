@@ -38,10 +38,13 @@
    site. */
 
 :root:lang(zh-CN) {
-    /* Chinese characters are shorter than English words, so tighten the
-       nav gap and pull it further from the right edge. */
+    /* Chinese characters are shorter than English words. Figma 2 uses a
+       larger nav font size (35 vs 25) and ~50px gaps between auto-sized
+       nav items on ZH (vs ~0 on EN). */
     --nav-x: 40px;
-    --nav-gap: 28px;
+    --nav-gap: 50px;
+    --nav-size: 35px;
+    --nav-y: 31px;
 }
 
 /* Display — Ma Shan Zheng (brush). Covers headings plus the short

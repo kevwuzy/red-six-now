@@ -8,6 +8,45 @@
     font-display: swap;
 }
 
+/* ─────── Language toggle (中 / EN) ─────── */
+
+.lang-toggle {
+    width: auto !important;
+    padding: 2px 10px;
+    border: 1px solid var(--red);
+    font-size: 18px !important;
+    align-self: center;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.lang-toggle:hover {
+    opacity: 1;
+    background: rgba(122, 8, 8, 0.06);
+}
+
+/* Chinese heading fallback so CJK chars render in a brush/handdrawn
+   style similar to Freckle Face. The stack in each component already
+   declares Freckle Face first for Latin; Ma Shan Zheng handles CJK. */
+:lang(zh-CN),
+:lang(zh-CN) .page-title,
+:lang(zh-CN) .service-name,
+:lang(zh-CN) .booking-notes h3,
+:lang(zh-CN) .contact-card h3,
+:lang(zh-CN) .contact-intro,
+:lang(zh-CN) .title,
+:lang(zh-CN) .tagline {
+    font-family: 'Freckle Face', 'Ma Shan Zheng', cursive;
+}
+
+:lang(zh-CN) .service-desc,
+:lang(zh-CN) .service-note,
+:lang(zh-CN) .booking-notes ul,
+:lang(zh-CN) .contact-value,
+:lang(zh-CN) .contact-hint {
+    font-family: 'FK Grotesk Neue', 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+}
+
 /* ─────── Scroll sections (single-page layout) ─────── */
 
 .scroll-section {

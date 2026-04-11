@@ -63,9 +63,12 @@
 }
 
 /* Language toggle keeps Freckle Face on both pages so the "EN" label
-   on ZH renders in the brand Latin font, not the Chinese brush font. */
+   on ZH renders in the brand Latin font, not the Chinese brush font.
+   Negative left margin cancels the pill's internal left padding so
+   the text-to-text gap matches the 50px word-to-word rhythm. */
 :lang(zh-CN) .top-nav a.lang-toggle {
     font-family: 'Freckle Face', cursive;
+    margin-left: -11px;
 }
 
 /* Long / small body copy — Noto Sans SC for legibility */

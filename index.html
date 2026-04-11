@@ -2,42 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <title>RED SIX NOW — Makeup Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Inter:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script>
-        // Scale the 1920x1080 stage to fit any viewport while preserving the aspect ratio
-        function fitStage() {
-            const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
-            document.documentElement.style.setProperty('--scale', scale);
-        }
-        window.addEventListener('resize', fitStage);
-        window.addEventListener('DOMContentLoaded', fitStage);
-        fitStage();
-    </script>
 </head>
 <body>
-    <div class="stage-wrap">
-        <div class="stage">
-            <div class="hero-image" aria-hidden="true">
-                <img src="assets/hero.png" alt="">
-            </div>
+    <a class="logo" href="#" aria-label="Red Six Now home">
+        <img src="assets/logo.svg" alt="Red Six Now">
+    </a>
 
-            <a class="logo" href="#" aria-label="Red Six Now home">
-                <img src="assets/logo.svg" alt="Red Six Now">
-            </a>
+    <nav class="top-nav">
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
 
-            <nav class="top-nav">
-                <a href="#portfolio">PORTFOLIO</a>
-                <a href="#contact">CONTACT</a>
-            </nav>
-
+    <main class="hero">
+        <div class="hero-image" aria-hidden="true">
+            <img src="assets/hero.png" alt="">
+        </div>
+        <div class="hero-content">
             <h1 class="title">RED SIX NOW</h1>
             <span class="tagline">MAKEUP STUDIO</span>
         </div>
-    </div>
+    </main>
 </body>
 </html>

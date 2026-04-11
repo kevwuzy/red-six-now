@@ -1,6 +1,17 @@
 :root {
     --bg: #f1f0ec;
     --red: #7a0808;
+
+    /* Fixed chrome sizes (desktop) */
+    --logo-w: 66px;
+    --logo-h: 99px;
+    --logo-x: 39px;
+    --logo-y: 30px;
+
+    --nav-size: 30px;
+    --nav-gap: 90px;
+    --nav-x: 55px;
+    --nav-y: 31px;
 }
 
 * { box-sizing: border-box; }
@@ -8,63 +19,26 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100vh;
     background: var(--bg);
     color: var(--red);
-    overflow: hidden;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Freckle Face', cursive;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-/* Stage wrapper — centers and scales the 1920x1080 design to fit any viewport */
-.stage-wrap {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
+/* ─────── Fixed chrome (logo + nav) ─────── */
+/* Anchored to viewport corners at real pixel sizes — position stays
+   consistent across every viewport. */
 
-.stage {
-    position: relative;
-    width: 1920px;
-    height: 1080px;
-    flex-shrink: 0;
-    transform-origin: center center;
-    transform: scale(var(--scale, 1));
-}
-
-/* Background hero image — Figma: 1409x1080, left:242, top:0, opacity:80% */
-.hero-image {
-    position: absolute;
-    left: 242px;
-    top: 0;
-    width: 1409px;
-    height: 1080px;
-    opacity: 0.8;
-    overflow: hidden;
-    pointer-events: none;
-}
-.hero-image img {
-    position: absolute;
-    left: 0;
-    top: -36.1%;
-    width: 100%;
-    height: 175.5%;
-    max-width: none;
-    object-fit: cover;
-    display: block;
-}
-
-/* Logo — Figma: 98.28 x 148.09 at (39, 30) */
 .logo {
-    position: absolute;
-    left: 39px;
-    top: 30px;
-    width: 98.28px;
-    height: 148.09px;
+    position: fixed;
+    top: var(--logo-y);
+    left: var(--logo-x);
+    width: var(--logo-w);
+    height: var(--logo-h);
     display: block;
+    z-index: 10;
 }
 .logo img {
     width: 100%;
@@ -73,66 +47,157 @@ html, body {
     display: block;
 }
 
-/* Top nav — PORTFOLIO at (1501, 31), CONTACT at (1730, 31), 30px Freckle Face */
+.top-nav {
+    position: fixed;
+    top: var(--nav-y);
+    right: var(--nav-x);
+    display: flex;
+    align-items: baseline;
+    gap: var(--nav-gap);
+    z-index: 10;
+}
 .top-nav a {
-    position: absolute;
-    top: 31px;
     font-family: 'Freckle Face', cursive;
     font-weight: 400;
-    font-size: 30px;
-    line-height: 75px;
-    letter-spacing: -0.6px;
+    font-size: var(--nav-size);
+    line-height: 1;
+    letter-spacing: -0.02em;
     color: var(--red);
     text-decoration: none;
-    margin: 0;
-    height: 68px;
-}
-.top-nav a[href="#portfolio"] {
-    left: 1501px;
-    width: 142px;
-}
-.top-nav a[href="#contact"] {
-    left: 1730px;
-    width: 132px;
 }
 
-/* Main title — Figma: center at (969.5, 539.5), 200px Freckle Face */
-.title {
-    position: absolute;
-    left: 969.5px;
-    top: 539.5px;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    width: 1547px;
-    height: 291px;
-    font-family: 'Freckle Face', cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 200px;
-    line-height: 75px;
-    letter-spacing: -10px;
-    text-align: center;
-    color: var(--red);
+/* ─────── Hero section ─────── */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Background photo — matches the Figma crop (175.5% height, -36.1% top) */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    aspect-ratio: 1409 / 1080;
+    opacity: 0.8;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+.hero-image img {
+    position: absolute;
+    top: -36.1%;
+    left: 0;
+    width: 100%;
+    height: 175.5%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Title + tagline composition, centered */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(4px, 0.6vw, 12px);
+    padding: 0 24px;
+    max-width: 100vw;
+}
+
+.title {
+    font-family: 'Freckle Face', cursive;
+    font-weight: 400;
+    /* 200px at 1920-wide viewport, scales fluidly */
+    font-size: clamp(56px, 10.4vw, 200px);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--red);
+    margin: 0;
+    text-align: center;
     white-space: nowrap;
 }
 
-/* Makeup Studio tagline — Figma: left 1463, top 593.5 (center-y), 20px */
 .tagline {
-    position: absolute;
-    left: 1463px;
-    top: 593.5px;
-    transform: translateY(-50%);
-    width: 193px;
-    height: 47px;
     font-family: 'Freckle Face', cursive;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 75px;
-    letter-spacing: -0.4px;
+    font-size: clamp(7px, 1.05vw, 20px);
+    line-height: 1;
+    letter-spacing: -0.02em;
     color: var(--red);
-    display: flex;
-    align-items: center;
+    white-space: nowrap;
+    padding-bottom: clamp(6px, 1vw, 20px);
+}
+
+/* ─────── Tablet ─────── */
+@media (max-width: 900px) {
+    :root {
+        --logo-w: 54px;
+        --logo-h: 81px;
+        --logo-x: 28px;
+        --logo-y: 24px;
+
+        --nav-size: 22px;
+        --nav-gap: 40px;
+        --nav-x: 28px;
+        --nav-y: 26px;
+    }
+}
+
+/* ─────── Mobile ─────── */
+@media (max-width: 560px) {
+    :root {
+        --logo-w: 42px;
+        --logo-h: 63px;
+        --logo-x: 18px;
+        --logo-y: 18px;
+
+        --nav-size: 16px;
+        --nav-gap: 18px;
+        --nav-x: 18px;
+        --nav-y: 22px;
+    }
+
+    .title {
+        /* Larger relative to narrow viewports so it reads as the hero */
+        font-size: clamp(44px, 16vw, 120px);
+    }
+
+    .tagline {
+        font-size: clamp(8px, 2.4vw, 14px);
+        padding-bottom: 6px;
+    }
+
+    /* On very narrow viewports the portrait photo looks better cropped wider */
+    .hero-image {
+        left: 50%;
+        height: 100%;
+        aspect-ratio: auto;
+        width: 100%;
+        transform: translateX(-50%);
+    }
+    .hero-image img {
+        top: 0;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 20%;
+    }
+}
+
+/* ─────── Ultra-narrow (phones in portrait < 380) ─────── */
+@media (max-width: 380px) {
+    .title { font-size: 52px; }
+    .tagline { font-size: 10px; }
+    :root {
+        --nav-gap: 14px;
+        --nav-size: 14px;
+    }
 }

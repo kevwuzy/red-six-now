@@ -143,5 +143,38 @@
             </div>
         </section>
     </main>
+
+    <script>
+        // Reveal elements as they scroll into view. Skipped entirely when
+        // the user has prefers-reduced-motion enabled.
+        (function () {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            var selectors = [
+                '#portfolio .page-title',
+                '#portfolio .portfolio-grid',
+                '#services .page-title',
+                '#services .service-row',
+                '#services .booking-notes',
+                '#contact .page-title',
+                '#contact .contact-intro',
+                '#contact .contact-card'
+            ];
+            var els = document.querySelectorAll(selectors.join(','));
+            if (!els.length || !('IntersectionObserver' in window)) return;
+
+            els.forEach(function (el) { el.classList.add('animate-in'); });
+
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+            els.forEach(function (el) { io.observe(el); });
+        })();
+    </script>
 </body>
 </html>

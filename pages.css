@@ -131,6 +131,26 @@
     width: auto !important;
 }
 
+/* ─────── Scroll-triggered reveal animation ─────── */
+/* Elements tagged .animate-in start invisible and slightly below their
+   final position. When the IntersectionObserver (in index.html) adds
+   .is-visible, they fade up over 600ms with an easeOut curve. Wrapped
+   in prefers-reduced-motion: no-preference so users who opt out of
+   motion see everything immediately. */
+@media (prefers-reduced-motion: no-preference) {
+    .animate-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: opacity, transform;
+    }
+    .animate-in.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* ─────── Scroll sections (single-page layout) ─────── */
 
 .scroll-section {

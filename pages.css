@@ -12,12 +12,14 @@
 
 .top-nav a.lang-toggle {
     width: auto !important;
-    padding: 2px 8px;
-    margin-left: 12px;
+    /* Flex centering ensures the glyph sits in the middle of the pill
+       regardless of font-metric baseline quirks (CJK characters tend
+       to float toward the top of the line box otherwise). */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
     border: 1px solid var(--red);
-    /* Noto Sans SC for the 中 character; Latin EN still falls back to
-       Freckle Face via the stack. Size tracks the nav rather than the
-       hardcoded 18px so it stays in proportion across breakpoints. */
     font-family: 'Freckle Face', 'Noto Sans SC', cursive;
     font-size: calc(var(--nav-size) * 0.8);
     line-height: 1;
@@ -29,6 +31,15 @@
 .top-nav a.lang-toggle:hover {
     opacity: 1;
     background: rgba(122, 8, 8, 0.06);
+}
+
+/* Extra left margin only on desktop so the toggle doesn't visually
+   crowd the last nav item whose fixed 132px box adds less padding
+   than the 142px boxes. Not needed at auto-width mobile sizes. */
+@media (min-width: 901px) {
+    .top-nav a.lang-toggle {
+        margin-left: 12px;
+    }
 }
 
 /* ─────── Chinese page ─────── */
@@ -90,12 +101,18 @@
 }
 
 /* Language toggle keeps Freckle Face on both pages so the "EN" label
-   on ZH renders in the brand Latin font, not the Chinese brush font.
-   Negative left margin cancels the pill's internal left padding so
-   the text-to-text gap matches the 50px word-to-word rhythm. */
+   on ZH renders in the brand Latin font, not the Chinese brush font. */
 :lang(zh-CN) .top-nav a.lang-toggle {
     font-family: 'Freckle Face', cursive;
-    margin-left: -11px;
+}
+
+/* Desktop ZH: negative left margin cancels the pill's internal left
+   padding so the text-to-text gap matches the 50px word-to-word
+   rhythm. Only needed where the desktop margin-left:12 is active. */
+@media (min-width: 901px) {
+    :lang(zh-CN) .top-nav a.lang-toggle {
+        margin-left: -11px;
+    }
 }
 
 /* Long / small body copy — Noto Sans SC for legibility */

@@ -61,6 +61,12 @@
     font-family: 'Ma Shan Zheng', 'Freckle Face', cursive;
 }
 
+/* Language toggle keeps Freckle Face on both pages so the "EN" label
+   on ZH renders in the brand Latin font, not the Chinese brush font. */
+:lang(zh-CN) .top-nav a.lang-toggle {
+    font-family: 'Freckle Face', cursive;
+}
+
 /* Long / small body copy — Noto Sans SC for legibility */
 :lang(zh-CN) .service-desc,
 :lang(zh-CN) .service-note,

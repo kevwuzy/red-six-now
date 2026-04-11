@@ -48,11 +48,14 @@
 }
 
 /* Display — Ma Shan Zheng (brush). Covers headings plus the short
-   labels (nav, tagline) that the user wants in the brand brush style. */
+   labels (nav, tagline, prices) that the user wants in the brand
+   brush style. Ma Shan Zheng ships with matching Latin glyphs so
+   the SGD prices also render in the brush font on ZH. */
 :lang(zh-CN) .tagline,
 :lang(zh-CN) .top-nav a,
 :lang(zh-CN) .page-title,
 :lang(zh-CN) .service-name,
+:lang(zh-CN) .service-price,
 :lang(zh-CN) .booking-notes h3,
 :lang(zh-CN) .contact-card h3 {
     font-family: 'Ma Shan Zheng', 'Freckle Face', cursive;

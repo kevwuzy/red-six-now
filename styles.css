@@ -132,7 +132,10 @@ html, body {
 .tagline {
     position: absolute;
     left: 100%;
-    bottom: 0;
+    /* Figma places the tagline center 54px below the title center at a 200px
+       title. That works out to ~14% up from the bottom of the title line-box,
+       which scales correctly with the fluid title size. */
+    bottom: 14%;
     margin-left: clamp(2px, 0.3vw, 8px);
     font-family: 'Freckle Face', cursive;
     font-size: clamp(7px, 1.05vw, 20px);

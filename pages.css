@@ -1,11 +1,9 @@
-/* FK Grotesk Neue is a commercial font by Florian Karsten. If you have
-   a licensed .woff2 file, drop it into assets/fonts/ and this @font-face
-   will pick it up automatically. Until then the stack falls back to
-   Inter (loaded from Google Fonts in the HTML) and system sans. */
+/* FK Grotesk Neue — self-hosted .woff2 under /fonts. Weight range is
+   left wide so any weight the file supports resolves to this face. */
 @font-face {
     font-family: 'FK Grotesk Neue';
-    src: url('assets/fonts/FKGroteskNeue-Medium.woff2') format('woff2');
-    font-weight: 500;
+    src: url('fonts/FKGroteskNeue.woff2') format('woff2');
+    font-weight: 100 900;
     font-style: normal;
     font-display: swap;
 }

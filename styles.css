@@ -9,9 +9,9 @@
     --logo-y: 30px;
 
     --nav-size: 25px;
-    --nav-gap: 28px;
-    --nav-x: 53px;
-    --nav-y: 31px;
+    --nav-gap: 11px;
+    --nav-x: 14px;
+    --nav-y: 20px;
 }
 
 * { box-sizing: border-box; }

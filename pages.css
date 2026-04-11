@@ -14,7 +14,9 @@
     width: auto !important;
     padding: 2px 10px;
     border: 1px solid var(--red);
-    font-family: 'Ma Shan Zheng', 'Freckle Face', cursive;
+    /* Noto Sans SC for the 中 character; Latin EN still falls back to
+       Freckle Face via the stack. */
+    font-family: 'Freckle Face', 'Noto Sans SC', cursive;
     font-size: 18px !important;
     align-self: center;
     opacity: 0.85;
@@ -26,12 +28,14 @@
     background: rgba(122, 8, 8, 0.06);
 }
 
-/* ─────── Chinese page — single display font for every CJK element ─────── */
-/* The EN site uses Freckle Face + FK Grotesk Neue. On the ZH site, every
-   CJK element collapses onto Ma Shan Zheng so the page reads with one
-   consistent brush-style voice. Latin characters (RED SIX NOW, SGD,
-   @RedSixNow) still fall through to Freckle Face / FK Grotesk Neue via
-   the stack. */
+/* ─────── Chinese page ─────── */
+/* Two CJK fonts are in play:
+     - Ma Shan Zheng  — brush-style display, only for BIG headings
+     - Noto Sans SC   — clean sans, for nav + tagline + every body text
+   Ma Shan Zheng becomes unreadable below ~20px, which is why small
+   elements get the sans variant. The hero title (.title) is NOT
+   overridden so "RED SIX NOW" stays in Freckle Face as on the EN
+   site. */
 
 :root:lang(zh-CN) {
     /* Chinese characters are shorter than English words, so tighten the
@@ -40,21 +44,24 @@
     --nav-gap: 28px;
 }
 
-:lang(zh-CN) .title,
-:lang(zh-CN) .tagline,
-:lang(zh-CN) .top-nav a,
+/* Big headings — Ma Shan Zheng (readable at display sizes) */
 :lang(zh-CN) .page-title,
 :lang(zh-CN) .service-name,
-:lang(zh-CN) .service-price,
+:lang(zh-CN) .booking-notes h3,
+:lang(zh-CN) .contact-card h3 {
+    font-family: 'Ma Shan Zheng', 'Freckle Face', cursive;
+}
+
+/* Secondary / body copy — Noto Sans SC (readable at small sizes) */
+:lang(zh-CN) .tagline,
+:lang(zh-CN) .top-nav a,
 :lang(zh-CN) .service-desc,
 :lang(zh-CN) .service-note,
-:lang(zh-CN) .booking-notes h3,
 :lang(zh-CN) .booking-notes ul,
 :lang(zh-CN) .contact-intro,
-:lang(zh-CN) .contact-card h3,
-:lang(zh-CN) .contact-value,
 :lang(zh-CN) .contact-hint {
-    font-family: 'Ma Shan Zheng', 'Freckle Face', 'FK Grotesk Neue', cursive;
+    font-family: 'Noto Sans SC', 'FK Grotesk Neue', 'Inter', system-ui, sans-serif;
+    font-weight: 500;
 }
 
 /* Let nav items size to their (shorter) Chinese content instead of the

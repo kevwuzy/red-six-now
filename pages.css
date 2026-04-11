@@ -108,22 +108,24 @@
 
 .portfolio-grid {
     display: grid;
-    /* 4 fixed columns at desktop, matching Figma's 382px tiles in a
-       1600-wide grid. Below 1200px (e.g. tablet) drop to 3 columns,
-       below 700px drop to 2, and below 480 to 1. */
-    grid-template-columns: repeat(4, 1fr);
+    /* 5 fixed columns at desktop (10 photos -> 2 rows of 5). Step down
+       at tablet/mobile breakpoints. */
+    grid-template-columns: repeat(5, 1fr);
     gap: clamp(12px, 1.5vw, 24px);
     max-width: 1600px;
     margin: 0 auto;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
+    .portfolio-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 980px) {
     .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
 }
-@media (max-width: 700px) {
+@media (max-width: 680px) {
     .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 480px) {
+@media (max-width: 420px) {
     .portfolio-grid { grid-template-columns: 1fr; }
 }
 
@@ -211,8 +213,6 @@
 .booking-notes {
     max-width: 860px;
     margin: clamp(40px, 5vw, 72px) auto 0;
-    padding-top: clamp(28px, 3.5vw, 40px);
-    border-top: 2px solid var(--red);
     font-family: 'FK Grotesk Neue', 'Inter', system-ui, -apple-system, sans-serif;
     font-weight: 500;
 }

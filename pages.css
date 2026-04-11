@@ -185,8 +185,8 @@
 
 .portfolio-grid {
     display: grid;
-    /* 5 fixed columns at desktop (10 photos -> 2 rows of 5). Step down
-       at tablet/mobile breakpoints. */
+    /* 5 fixed columns at desktop (up to 20 photos -> 4 rows of 5).
+       Step down at tablet/mobile breakpoints. */
     grid-template-columns: repeat(5, 1fr);
     gap: clamp(12px, 1.5vw, 24px);
     max-width: 1600px;
@@ -204,6 +204,15 @@
 }
 @media (max-width: 420px) {
     .portfolio-grid { grid-template-columns: 1fr; }
+}
+
+/* Cap the portfolio at 10 photos on mobile (<=560px) so the page
+   stays manageable. The extra 10 tiles (11-20) only show on larger
+   viewports. */
+@media (max-width: 560px) {
+    .portfolio-tile:nth-child(n + 11) {
+        display: none;
+    }
 }
 
 .portfolio-tile {

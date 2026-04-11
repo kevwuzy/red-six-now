@@ -20,6 +20,7 @@
     </nav>
 
     <main class="hero">
+        <div data-ascii-dither-bg aria-hidden="true"></div>
         <div class="hero-image" aria-hidden="true">
             <img src="assets/hero.png" alt="">
         </div>
@@ -29,5 +30,44 @@
             </h1>
         </div>
     </main>
+
+    <script>
+        // Some headless preview browsers report visibilityState "hidden" and
+        // their IntersectionObserver reports the mount as not intersecting,
+        // which causes the ASCII dither renderer to pause. Detect those
+        // environments and patch the APIs. In a real browser the shim is a
+        // no-op (visibilityState is already "visible" and real IO works).
+        if (document.visibilityState === 'hidden' || !document.hasFocus()) {
+            try {
+                Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'visible' });
+                Object.defineProperty(document, 'hidden', { configurable: true, get: () => false });
+            } catch (e) {}
+            // Patch IntersectionObserver to always report intersecting.
+            const NativeIO = window.IntersectionObserver;
+            if (NativeIO) {
+                window.IntersectionObserver = class {
+                    constructor(cb) { this.cb = cb; }
+                    observe(el) {
+                        Promise.resolve().then(() => this.cb([{
+                            target: el, isIntersecting: true, intersectionRatio: 1,
+                            boundingClientRect: el.getBoundingClientRect(),
+                            intersectionRect: el.getBoundingClientRect(),
+                            rootBounds: null, time: performance.now()
+                        }], this));
+                    }
+                    unobserve() {}
+                    disconnect() {}
+                    takeRecords() { return []; }
+                };
+            }
+            // Some headless browsers pause requestAnimationFrame entirely for
+            // backgrounded windows, which halts the dither animation. Fall
+            // back to setTimeout at ~20 fps.
+            const nativeRAF = window.requestAnimationFrame.bind(window);
+            window.requestAnimationFrame = (cb) => setTimeout(() => cb(performance.now()), 50);
+            window.cancelAnimationFrame = (id) => clearTimeout(id);
+        }
+    </script>
+    <script src="assets/ascii-dither-background.js"></script>
 </body>
 </html>

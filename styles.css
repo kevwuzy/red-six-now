@@ -58,7 +58,7 @@ html, body {
     top: var(--nav-y);
     right: var(--nav-x);
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: var(--nav-gap);
     z-index: 10;
 }

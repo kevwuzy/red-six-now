@@ -95,12 +95,12 @@ html, body {
 }
 
 /* Background photo — matches the Figma crop (175.5% height, -36.1% top).
-   Anchored to left:12.66% so at a 1920-wide viewport it sits at x=243
-   per the Figma frame (not dead-centered). */
+   Centered in the viewport so it looks balanced at any width. */
 .hero-image {
     position: absolute;
     top: 0;
-    left: 12.66%;
+    left: 50%;
+    transform: translateX(-50%);
     height: 100%;
     aspect-ratio: 1409 / 1080;
     opacity: 0.8;

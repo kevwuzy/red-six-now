@@ -9,8 +9,8 @@
     --logo-y: 30px;
 
     --nav-size: 25px;
-    --nav-gap: 90px;
-    --nav-x: 55px;
+    --nav-gap: 28px;
+    --nav-x: 53px;
     --nav-y: 31px;
 }
 
@@ -64,7 +64,11 @@ html, body {
     letter-spacing: -0.02em;
     color: var(--red);
     text-decoration: none;
+    /* Fixed-width boxes so nav spacing matches Figma exactly. */
+    width: 142px;
+    text-align: center;
 }
+.top-nav a[href="#contact"] { width: 132px; }
 
 /* ─────── Hero section ─────── */
 

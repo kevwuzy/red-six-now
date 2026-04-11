@@ -11,14 +11,20 @@
 /* ─────── Scroll sections (single-page layout) ─────── */
 
 .scroll-section {
-    padding: clamp(80px, 10vw, 140px) clamp(24px, 4vw, 80px);
+    /* Single-sided top padding so the visual gap between adjacent
+       sections stays consistent (otherwise two adjacent sections stack
+       their top+bottom padding and double the gap). Last section gets
+       matching bottom padding so the page doesn't end abruptly. */
+    padding: clamp(100px, 10vw, 160px) clamp(24px, 4vw, 80px) 0;
     /* Anchor clicks account for the fixed logo/nav chrome so the
-       section title doesn't hide beneath it on jump. Chrome top edge
-       is near y=30, logo descends to ~178 at desktop — 160px gives a
-       comfortable landing spot. */
-    scroll-margin-top: clamp(100px, 10vw, 180px);
+       section title doesn't hide beneath it on jump. */
+    scroll-margin-top: clamp(90px, 8vw, 150px);
     position: relative;
     z-index: 1;
+}
+
+.scroll-section:last-child {
+    padding-bottom: clamp(100px, 10vw, 160px);
 }
 
 .page-title {

@@ -2,11 +2,13 @@
     --bg: #f1f0ec;
     --red: #7a0808;
 
-    /* Fixed chrome sizes (desktop) */
-    --logo-w: 98.28px;
-    --logo-h: 148.09px;
-    --logo-x: 39px;
-    --logo-y: 30px;
+    /* Logo sized proportionally to viewport (Figma: 98.28 x 148.09 on a
+       1920 canvas = ~5.12% / ~7.71% of viewport width), with a min floor
+       so it stays legible on very narrow screens. */
+    --logo-w: clamp(42px, 5.119vw, 98.28px);
+    --logo-h: clamp(63px, 7.713vw, 148.09px);
+    --logo-x: clamp(18px, 2.03vw, 39px);
+    --logo-y: clamp(18px, 1.56vw, 30px);
 
     --nav-size: 25px;
     --nav-gap: 11px;
@@ -157,11 +159,6 @@ html, body {
 /* ─────── Tablet ─────── */
 @media (max-width: 900px) {
     :root {
-        --logo-w: 54px;
-        --logo-h: 81px;
-        --logo-x: 28px;
-        --logo-y: 24px;
-
         --nav-size: 22px;
         --nav-gap: 40px;
         --nav-x: 28px;
@@ -172,11 +169,6 @@ html, body {
 /* ─────── Mobile ─────── */
 @media (max-width: 560px) {
     :root {
-        --logo-w: 42px;
-        --logo-h: 63px;
-        --logo-x: 18px;
-        --logo-y: 18px;
-
         --nav-size: 16px;
         --nav-gap: 18px;
         --nav-x: 18px;

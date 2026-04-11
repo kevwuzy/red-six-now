@@ -190,8 +190,8 @@ html, body {
     .tagline {
         position: static;
         display: block;
-        margin: 4px 0 0;
-        font-size: clamp(8px, 2.4vw, 14px);
+        margin: 6px 0 0;
+        font-size: clamp(16px, 4.2vw, 22px);
     }
 
     /* On very narrow viewports the portrait photo looks better cropped wider */
@@ -213,7 +213,7 @@ html, body {
 /* ─────── Ultra-narrow (phones in portrait < 380) ─────── */
 @media (max-width: 380px) {
     .title { font-size: 52px; }
-    .tagline { font-size: 10px; }
+    .tagline { font-size: 15px; }
     :root {
         --nav-gap: 14px;
         --nav-size: 14px;

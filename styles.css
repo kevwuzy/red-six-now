@@ -8,12 +8,12 @@
     --logo-w: clamp(42px, 5.119vw, 98.28px);
     --logo-h: clamp(63px, 7.713vw, 148.09px);
     --logo-x: clamp(18px, 2.03vw, 39px);
-    --logo-y: clamp(18px, 1.56vw, 30px);
+    --logo-y: clamp(20px, 2.083vw, 40px);
 
     --nav-size: 25px;
     --nav-gap: 11px;
-    --nav-x: 14px;
-    --nav-y: 20px;
+    --nav-x: 9px;
+    --nav-y: 30px;
 }
 
 * { box-sizing: border-box; }

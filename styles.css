@@ -102,19 +102,21 @@ html, body {
     display: block;
 }
 
-/* Title + tagline composition, centered */
+/* Title + tagline composition.
+   The title is truly centered in the viewport (matching the Figma frame
+   center) and the tagline is pinned to the right edge of the title so it
+   doesn't pull the title off-center. */
 .hero-content {
     position: relative;
     z-index: 2;
+    width: 100%;
     display: flex;
-    align-items: flex-end;
     justify-content: center;
-    gap: clamp(4px, 0.6vw, 12px);
     padding: 0 24px;
-    max-width: 100vw;
 }
 
 .title {
+    position: relative;
     font-family: 'Freckle Face', cursive;
     font-weight: 400;
     /* 200px at 1920-wide viewport, scales fluidly */
@@ -128,13 +130,16 @@ html, body {
 }
 
 .tagline {
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    margin-left: clamp(2px, 0.3vw, 8px);
     font-family: 'Freckle Face', cursive;
     font-size: clamp(7px, 1.05vw, 20px);
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--red);
     white-space: nowrap;
-    padding-bottom: clamp(6px, 1vw, 20px);
 }
 
 /* ─────── Tablet ─────── */
@@ -171,9 +176,13 @@ html, body {
         font-size: clamp(44px, 16vw, 120px);
     }
 
+    /* On narrow screens, drop the tagline below the centered title
+       instead of letting it hang off-screen to the right. */
     .tagline {
+        position: static;
+        display: block;
+        margin: 4px 0 0;
         font-size: clamp(8px, 2.4vw, 14px);
-        padding-bottom: 6px;
     }
 
     /* On very narrow viewports the portrait photo looks better cropped wider */

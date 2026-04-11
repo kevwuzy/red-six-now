@@ -3,6 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <!-- Auto-redirect Chinese-browser visitors to the ZH page on first
+         visit. If the URL carries ?en=1 (set by the EN toggle on the
+         ZH page), the redirect is skipped so manual overrides stick. -->
+    <script>
+        (function () {
+            try {
+                var params = new URLSearchParams(window.location.search);
+                if (params.has('en')) return;
+                var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+                if (lang.indexOf('zh') === 0) {
+                    window.location.replace('index-zh.html');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <title>RED SIX NOW — Makeup Studio</title>
     <meta name="description" content="RED SIX NOW — makeup studio portfolio, services, and bookings.">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">

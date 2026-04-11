@@ -27,12 +27,22 @@ html, body {
     overflow-x: hidden;
 }
 
+/* Fixed 1920-wide design frame, centered in the viewport. Narrower
+   viewports just crop the sides of this frame. */
+.frame {
+    position: relative;
+    width: 1920px;
+    height: 100vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 /* ─────── Fixed chrome (logo + nav) ─────── */
 /* Anchored to viewport corners at real pixel sizes — position stays
    consistent across every viewport. */
 
 .logo {
-    position: fixed;
+    position: absolute;
     top: var(--logo-y);
     left: var(--logo-x);
     width: var(--logo-w);
@@ -48,7 +58,7 @@ html, body {
 }
 
 .top-nav {
-    position: fixed;
+    position: absolute;
     top: var(--nav-y);
     right: var(--nav-x);
     display: flex;
@@ -135,8 +145,7 @@ html, body {
     position: relative;
     font-family: 'Freckle Face', cursive;
     font-weight: 400;
-    /* 200px at 1920-wide viewport, scales fluidly */
-    font-size: clamp(56px, 10.4vw, 200px);
+    font-size: 200px;
     line-height: 0.9;
     letter-spacing: -0.05em;
     color: var(--red);
@@ -148,84 +157,15 @@ html, body {
 .tagline {
     position: absolute;
     left: 100%;
-    /* Figma places the tagline center 54px below the title center at a 200px
-       title. That works out to ~14% up from the bottom of the title line-box,
-       which scales correctly with the fluid title size. */
     bottom: 14%;
-    margin-left: clamp(2px, 0.3vw, 8px);
+    margin-left: 8px;
     font-family: 'Freckle Face', cursive;
-    font-size: clamp(7px, 1.05vw, 20px);
+    font-size: 20px;
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--red);
     white-space: nowrap;
 }
 
-/* ─────── Tablet ─────── */
-@media (max-width: 900px) {
-    :root {
-        --logo-w: 54px;
-        --logo-h: 81px;
-        --logo-x: 28px;
-        --logo-y: 24px;
-
-        --nav-size: 22px;
-        --nav-gap: 40px;
-        --nav-x: 28px;
-        --nav-y: 26px;
-    }
-}
-
-/* ─────── Mobile ─────── */
-@media (max-width: 560px) {
-    :root {
-        --logo-w: 42px;
-        --logo-h: 63px;
-        --logo-x: 18px;
-        --logo-y: 18px;
-
-        --nav-size: 16px;
-        --nav-gap: 18px;
-        --nav-x: 18px;
-        --nav-y: 22px;
-    }
-
-    .title {
-        /* Larger relative to narrow viewports so it reads as the hero */
-        font-size: clamp(44px, 16vw, 120px);
-    }
-
-    /* On narrow screens, drop the tagline below the centered title
-       instead of letting it hang off-screen to the right. */
-    .tagline {
-        position: static;
-        display: block;
-        margin: 4px 0 0;
-        font-size: clamp(8px, 2.4vw, 14px);
-    }
-
-    /* On very narrow viewports the portrait photo looks better cropped wider */
-    .hero-image {
-        left: 50%;
-        height: 100%;
-        aspect-ratio: auto;
-        width: 100%;
-        transform: translateX(-50%);
-    }
-    .hero-image img {
-        top: 0;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 20%;
-    }
-}
-
-/* ─────── Ultra-narrow (phones in portrait < 380) ─────── */
-@media (max-width: 380px) {
-    .title { font-size: 52px; }
-    .tagline { font-size: 10px; }
-    :root {
-        --nav-gap: 14px;
-        --nav-size: 14px;
-    }
-}
+/* No responsive reflow: smaller viewports show the same desktop
+   composition and simply crop at the edges via overflow: hidden. */

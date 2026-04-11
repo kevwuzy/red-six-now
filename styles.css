@@ -79,6 +79,22 @@ html, body {
     justify-content: center;
 }
 
+/* Force the ASCII dither canvases to fill the full hero viewport
+   (the script otherwise leaves them at their natural cols x rows size
+   and centers them with auto width/height). */
+[data-ascii-dither-bg] canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+}
+[data-ascii-dither-bg] > div:first-child {
+    inset: 0 !important;
+}
+
 /* Background photo — matches the Figma crop (175.5% height, -36.1% top) */
 .hero-image {
     position: absolute;

@@ -20,17 +20,19 @@ html, body {
 .stage-wrap {
     position: fixed;
     inset: 0;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .stage {
     position: relative;
     width: 1920px;
     height: 1080px;
+    flex-shrink: 0;
     transform-origin: center center;
-    /* Scale down to fit viewport while preserving aspect ratio */
-    transform: scale(min(100vw / 1920, 100vh / 1080));
+    transform: scale(var(--scale, 1));
 }
 
 /* Background hero image — Figma: 1409x1080, left:242, top:0, opacity:80% */
@@ -71,28 +73,27 @@ html, body {
     display: block;
 }
 
-/* Top nav — PORTFOLIO at (1529, 29), CONTACT at (1756, 29) */
+/* Top nav — PORTFOLIO at (1501, 31), CONTACT at (1730, 31), 30px Freckle Face */
 .top-nav a {
     position: absolute;
-    top: 29px;
-    font-family: 'Inter', 'FK Grotesk Neue', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
+    top: 31px;
+    font-family: 'Freckle Face', cursive;
+    font-weight: 400;
+    font-size: 30px;
     line-height: 75px;
-    letter-spacing: -0.4px;
+    letter-spacing: -0.6px;
     color: var(--red);
     text-decoration: none;
     margin: 0;
+    height: 68px;
 }
 .top-nav a[href="#portfolio"] {
-    left: 1529px;
+    left: 1501px;
     width: 142px;
-    height: 68px;
 }
 .top-nav a[href="#contact"] {
-    left: 1756px;
-    width: 109px;
-    height: 68px;
+    left: 1730px;
+    width: 132px;
 }
 
 /* Main title — Figma: center at (969.5, 539.5), 200px Freckle Face */

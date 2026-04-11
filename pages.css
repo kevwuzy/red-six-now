@@ -108,10 +108,23 @@
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    /* 4 fixed columns at desktop, matching Figma's 382px tiles in a
+       1600-wide grid. Below 1200px (e.g. tablet) drop to 3 columns,
+       below 700px drop to 2, and below 480 to 1. */
+    grid-template-columns: repeat(4, 1fr);
     gap: clamp(12px, 1.5vw, 24px);
     max-width: 1600px;
     margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+    .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 700px) {
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .portfolio-grid { grid-template-columns: 1fr; }
 }
 
 .portfolio-tile {
@@ -258,7 +271,13 @@
 
 .contact-card {
     border: 2px solid var(--red);
-    padding: clamp(24px, 3vw, 36px);
+    /* Figma card height is 150 fixed. Drop vertical padding to 24 and
+       give the card a fixed min-height so it lines up. */
+    padding: 24px clamp(24px, 3vw, 36px);
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: rgba(122, 8, 8, 0.02);
     transition: background 0.2s ease;
 }

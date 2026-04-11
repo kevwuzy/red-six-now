@@ -48,6 +48,31 @@
     --nav-y: 31px;
 }
 
+/* ZH mobile/tablet overrides — :lang beats plain @media :root, so scale
+   the ZH nav down inside each breakpoint. */
+@media (max-width: 900px) {
+    :root:lang(zh-CN) {
+        --nav-size: 24px;
+        --nav-gap: 28px;
+        --nav-x: 28px;
+        --nav-y: 26px;
+    }
+}
+@media (max-width: 560px) {
+    :root:lang(zh-CN) {
+        --nav-size: 20px;
+        --nav-gap: 16px;
+        --nav-x: 18px;
+        --nav-y: 22px;
+    }
+}
+@media (max-width: 380px) {
+    :root:lang(zh-CN) {
+        --nav-size: 18px;
+        --nav-gap: 12px;
+    }
+}
+
 /* Display — Ma Shan Zheng (brush). Covers headings plus the short
    labels (nav, tagline, prices) that the user wants in the brand
    brush style. Ma Shan Zheng ships with matching Latin glyphs so

@@ -44,7 +44,10 @@
     --nav-gap: 28px;
 }
 
-/* Big headings — Ma Shan Zheng (readable at display sizes) */
+/* Display — Ma Shan Zheng (brush). Covers headings plus the short
+   labels (nav, tagline) that the user wants in the brand brush style. */
+:lang(zh-CN) .tagline,
+:lang(zh-CN) .top-nav a,
 :lang(zh-CN) .page-title,
 :lang(zh-CN) .service-name,
 :lang(zh-CN) .booking-notes h3,
@@ -52,9 +55,7 @@
     font-family: 'Ma Shan Zheng', 'Freckle Face', cursive;
 }
 
-/* Secondary / body copy — Noto Sans SC (readable at small sizes) */
-:lang(zh-CN) .tagline,
-:lang(zh-CN) .top-nav a,
+/* Long / small body copy — Noto Sans SC for legibility */
 :lang(zh-CN) .service-desc,
 :lang(zh-CN) .service-note,
 :lang(zh-CN) .booking-notes ul,

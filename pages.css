@@ -201,10 +201,9 @@
     .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 680px) {
+    /* 2 columns on mobile so tiles are ~half-width and users see
+       multiple photos at once instead of one giant tile per viewport. */
     .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 420px) {
-    .portfolio-grid { grid-template-columns: 1fr; }
 }
 
 /* Cap the portfolio at 10 photos on mobile (<=560px) so the page

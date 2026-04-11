@@ -4,31 +4,140 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <title>RED SIX NOW — Makeup Studio</title>
+    <meta name="description" content="RED SIX NOW — makeup studio portfolio, services, and bookings.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Inter:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
 </head>
 <body>
-    <a class="logo" href="#" aria-label="Red Six Now home">
+    <a class="logo" href="#top" aria-label="Red Six Now home">
         <img src="assets/logo.svg" alt="Red Six Now">
     </a>
 
     <nav class="top-nav">
-        <a href="portfolio.html">PORTFOLIO</a>
-        <a href="services.html">SERVICES</a>
-        <a href="contact.html">CONTACT</a>
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#services">SERVICES</a>
+        <a href="#contact">CONTACT</a>
     </nav>
 
-    <main class="hero">
-        <div class="hero-image" aria-hidden="true">
-            <img src="assets/hero.png" alt="">
-        </div>
-        <div class="hero-content">
-            <h1 class="title">
-                RED SIX NOW<span class="tagline">MAKEUP STUDIO</span>
-            </h1>
-        </div>
+    <main>
+        <section class="hero" id="top">
+            <div class="hero-image" aria-hidden="true">
+                <img src="assets/hero.png" alt="">
+            </div>
+            <div class="hero-content">
+                <h1 class="title">
+                    RED SIX NOW<span class="tagline">MAKEUP STUDIO</span>
+                </h1>
+            </div>
+        </section>
+
+        <section class="scroll-section portfolio-section" id="portfolio">
+            <h2 class="page-title">PORTFOLIO</h2>
+            <div class="portfolio-grid">
+                <figure class="portfolio-tile"><img src="assets/portfolio/01.jpg" alt="Makeup look 01" loading="lazy"></figure>
+                <figure class="portfolio-tile"><img src="assets/portfolio/02.jpg" alt="Makeup look 02" loading="lazy"></figure>
+                <figure class="portfolio-tile"><img src="assets/portfolio/03.jpg" alt="Makeup look 03" loading="lazy"></figure>
+                <figure class="portfolio-tile"><img src="assets/portfolio/04.jpg" alt="Makeup look 04" loading="lazy"></figure>
+                <figure class="portfolio-tile"><img src="assets/portfolio/05.jpg" alt="Makeup look 05" loading="lazy"></figure>
+                <figure class="portfolio-tile"><img src="assets/portfolio/06.jpg" alt="Makeup look 06" loading="lazy"></figure>
+                <figure class="portfolio-tile"><img src="assets/portfolio/07.jpg" alt="Makeup look 07" loading="lazy"></figure>
+                <figure class="portfolio-tile"><img src="assets/portfolio/08.jpg" alt="Makeup look 08" loading="lazy"></figure>
+            </div>
+        </section>
+
+        <section class="scroll-section services-section" id="services">
+            <h2 class="page-title">SERVICES</h2>
+            <div class="services-list">
+                <section class="service-row">
+                    <div class="service-info">
+                        <h3 class="service-name">Daily Makeup</h3>
+                        <p class="service-desc">Natural / fresh / ID photo / interview looks</p>
+                        <p class="service-note">False lashes not included</p>
+                    </div>
+                    <div class="service-price">79 SGD</div>
+                </section>
+
+                <section class="service-row">
+                    <div class="service-info">
+                        <h3 class="service-name">Refined Makeup</h3>
+                        <p class="service-desc">Date / soft glam / birthday / gala / social-media looks</p>
+                        <p class="service-note">Includes false lashes</p>
+                    </div>
+                    <div class="service-price">89 SGD</div>
+                </section>
+
+                <section class="service-row">
+                    <div class="service-info">
+                        <h3 class="service-name">Signature Makeup</h3>
+                        <p class="service-desc">Concert / smoky / Asian-style / creative looks</p>
+                        <p class="service-note">Includes false lashes, optional face painting &amp; gems</p>
+                    </div>
+                    <div class="service-price">99 SGD</div>
+                </section>
+
+                <section class="service-row">
+                    <div class="service-info">
+                        <h3 class="service-name">1-on-1 Private Class</h3>
+                        <p class="service-desc">4 sessions × 2 hours. Find and master a look that fits you.</p>
+                    </div>
+                    <div class="service-price">500 SGD</div>
+                </section>
+
+                <section class="service-row">
+                    <div class="service-info">
+                        <h3 class="service-name">Bridal Styling</h3>
+                        <p class="service-desc">Includes hairstyle. 4-hour session.</p>
+                        <p class="service-note">On-site touch-ups +80 SGD / hour</p>
+                    </div>
+                    <div class="service-price">500 SGD</div>
+                </section>
+
+                <section class="service-row">
+                    <div class="service-info">
+                        <h3 class="service-name">Hairstyle Only</h3>
+                        <p class="service-desc">Standalone hairstyling</p>
+                    </div>
+                    <div class="service-price">30 SGD</div>
+                </section>
+            </div>
+
+            <aside class="booking-notes">
+                <h3>Booking Notes</h3>
+                <ul>
+                    <li>By appointment only. A deposit is required to confirm your slot, and same-day cancellations forfeit the deposit.</li>
+                    <li>Please arrive on time — lateness will shorten your service.</li>
+                    <li>Looks are tailored to your features and the style you request; we cannot guarantee a 100% reproduction of a reference image.</li>
+                    <li>Please raise any concerns during the appointment. Post-session complaints cannot be accepted.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <section class="scroll-section contact-section" id="contact">
+            <h2 class="page-title">CONTACT</h2>
+            <p class="contact-intro">Book your appointment</p>
+            <div class="contact-cards">
+                <section class="contact-card">
+                    <h3>WeChat</h3>
+                    <p class="contact-value">WeChat ID: TBD</p>
+                    <p class="contact-hint">Scan or add to book</p>
+                </section>
+
+                <section class="contact-card">
+                    <h3>Xiaohongshu</h3>
+                    <p class="contact-value">5379977880</p>
+                    <p class="contact-hint">Follow on RedNote</p>
+                </section>
+
+                <section class="contact-card">
+                    <h3>Instagram</h3>
+                    <p class="contact-value"><a href="https://instagram.com/redsixnow" target="_blank" rel="noopener">@redsixnow</a></p>
+                    <p class="contact-hint">DM for bookings</p>
+                </section>
+            </div>
+        </section>
     </main>
 </body>
 </html>

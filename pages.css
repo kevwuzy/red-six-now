@@ -8,13 +8,15 @@
     font-display: swap;
 }
 
-/* ─────── Subpage chrome / shared ─────── */
+/* ─────── Scroll sections (single-page layout) ─────── */
 
-.page-main {
-    /* Top padding clears the fixed logo/nav on every viewport. The logo
-       is the tallest chrome element; clamp mirrors its height plus
-       breathing room. */
-    padding: clamp(160px, 17vw, 240px) clamp(24px, 4vw, 80px) 80px;
+.scroll-section {
+    padding: clamp(80px, 10vw, 140px) clamp(24px, 4vw, 80px);
+    /* Anchor clicks account for the fixed logo/nav chrome so the
+       section title doesn't hide beneath it on jump. Chrome top edge
+       is near y=30, logo descends to ~178 at desktop — 160px gives a
+       comfortable landing spot. */
+    scroll-margin-top: clamp(100px, 10vw, 180px);
     position: relative;
     z-index: 1;
 }
@@ -28,13 +30,6 @@
     color: var(--red);
     text-align: center;
     margin: 0 0 clamp(32px, 4vw, 60px);
-}
-
-/* Active nav link indicator */
-.top-nav a.active {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 6px;
 }
 
 /* ─────── Portfolio ─────── */
@@ -164,14 +159,12 @@
 
 /* ─────── Contact ─────── */
 
-.contact-main {
-    min-height: 100vh;
+.contact-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: clamp(160px, 17vw, 240px) 24px 80px;
 }
 
 .contact-intro {
@@ -202,7 +195,7 @@
     background: rgba(122, 8, 8, 0.06);
 }
 
-.contact-card h2 {
+.contact-card h3 {
     font-family: 'Freckle Face', cursive;
     font-weight: 400;
     font-size: clamp(28px, 3vw, 40px);
@@ -246,8 +239,5 @@
     }
     .service-price {
         align-self: flex-end;
-    }
-    .page-main {
-        padding-top: clamp(120px, 24vw, 180px);
     }
 }

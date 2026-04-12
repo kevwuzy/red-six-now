@@ -154,7 +154,7 @@ html, body {
     bottom: 14%;
     margin-left: clamp(2px, 0.3vw, 8px);
     font-family: 'Freckle Face', cursive;
-    font-size: clamp(7px, 1.05vw, 20px);
+    font-size: clamp(9px, 1.3vw, 25px);
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--red);
@@ -191,7 +191,7 @@ html, body {
         position: static;
         display: block;
         margin: 6px 0 0;
-        font-size: clamp(16px, 4.2vw, 22px);
+        font-size: clamp(20px, 5.25vw, 28px);
     }
 
     /* On very narrow viewports the portrait photo looks better cropped wider */
@@ -213,7 +213,7 @@ html, body {
 /* ─────── Ultra-narrow (phones in portrait < 380) ─────── */
 @media (max-width: 380px) {
     .title { font-size: 52px; }
-    .tagline { font-size: 15px; }
+    .tagline { font-size: 19px; }
     :root {
         --nav-gap: 14px;
         --nav-size: 14px;

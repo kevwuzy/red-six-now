@@ -177,6 +177,18 @@ html, body {
     }
 }
 
+/* ─────── Tagline drop-below (tablet + mobile) ─────── */
+/* At ≤900 the tagline is too small to read beside the title, so drop
+   it onto a new line below RED SIX NOW, centered. */
+@media (max-width: 900px) {
+    .tagline {
+        position: static;
+        display: block;
+        margin: 6px 0 0;
+        font-size: clamp(18px, 3vw, 28px);
+    }
+}
+
 /* ─────── Mobile ─────── */
 @media (max-width: 560px) {
     :root {
@@ -189,15 +201,6 @@ html, body {
     .title {
         /* Larger relative to narrow viewports so it reads as the hero */
         font-size: clamp(44px, 16vw, 120px);
-    }
-
-    /* On narrow screens, drop the tagline below the centered title
-       instead of letting it hang off-screen to the right. */
-    .tagline {
-        position: static;
-        display: block;
-        margin: 6px 0 0;
-        font-size: clamp(20px, 5.25vw, 28px);
     }
 
     /* On very narrow viewports the portrait photo looks better cropped wider */

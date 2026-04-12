@@ -71,6 +71,12 @@ html, body {
     color: var(--red);
     text-decoration: none;
     text-align: center;
+    transition: opacity 0.2s ease;
+}
+.top-nav a:hover { opacity: 0.6; }
+.top-nav a:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 4px;
 }
 
 /* Fixed-width nav boxes apply on desktop only, so spacing matches Figma

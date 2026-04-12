@@ -2,11 +2,11 @@
     --bg: #f1f0ec;
     --red: #7a0808;
 
-    /* Logo sized proportionally to viewport (Figma 2: 78 x 118 on a
-       1920 canvas = ~4.06% / ~6.15% of viewport width), with a min floor
-       so it stays legible on very narrow screens. */
-    --logo-w: clamp(42px, 4.062vw, 78px);
-    --logo-h: clamp(63px, 6.146vw, 118px);
+    /* Logo sized proportionally to viewport. New cat logo is 126x154
+       (ratio ~0.82). At 1920 we show it at ~80x98, scaling down with
+       clamp for smaller viewports. */
+    --logo-w: clamp(44px, 4.167vw, 80px);
+    --logo-h: clamp(54px, 5.104vw, 98px);
     --logo-x: clamp(18px, 2.083vw, 40px);
     --logo-y: clamp(14px, 1.406vw, 27px);
 

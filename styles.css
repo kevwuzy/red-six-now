@@ -3,10 +3,10 @@
     --red: #7a0808;
 
     /* Logo sized proportionally to viewport. New cat logo is 126x154
-       (ratio ~0.82). At 1920 we show it at ~80x98, scaling down with
-       clamp for smaller viewports. */
-    --logo-w: clamp(44px, 4.167vw, 80px);
-    --logo-h: clamp(54px, 5.104vw, 98px);
+       (ratio ~0.82). At 1920 we show it at ~96x118 (20% bigger than
+       initial 80x98), scaling down with clamp for smaller viewports. */
+    --logo-w: clamp(44px, 5vw, 96px);
+    --logo-h: clamp(54px, 6.125vw, 118px);
     --logo-x: clamp(18px, 2.083vw, 40px);
     --logo-y: clamp(14px, 1.406vw, 27px);
 

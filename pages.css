@@ -206,15 +206,6 @@
     .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Cap the portfolio at 10 photos on mobile (<=560px) so the page
-   stays manageable. The extra 10 tiles (11-20) only show on larger
-   viewports. */
-@media (max-width: 560px) {
-    .portfolio-tile:nth-child(n + 11) {
-        display: none;
-    }
-}
-
 .portfolio-tile {
     margin: 0;
     aspect-ratio: 3 / 4;

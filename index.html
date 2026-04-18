@@ -133,6 +133,34 @@
                 <figure class="portfolio-tile"><img src="assets/portfolio/18.jpg" alt="Makeup look 18" loading="lazy" decoding="async"></figure>
                 <figure class="portfolio-tile"><img src="assets/portfolio/19.jpg" alt="Makeup look 19" loading="lazy" decoding="async"></figure>
                 <figure class="portfolio-tile"><img src="assets/portfolio/20.jpg" alt="Makeup look 20" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/21.jpg" alt="Makeup look 21" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/22.jpg" alt="Makeup look 22" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/23.jpg" alt="Makeup look 23" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/24.jpg" alt="Makeup look 24" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/25.jpg" alt="Makeup look 25" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/26.jpg" alt="Makeup look 26" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/27.jpg" alt="Makeup look 27" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/28.jpg" alt="Makeup look 28" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/29.jpg" alt="Makeup look 29" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/30.jpg" alt="Makeup look 30" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/31.jpg" alt="Makeup look 31" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/32.jpg" alt="Makeup look 32" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/33.jpg" alt="Makeup look 33" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/34.jpg" alt="Makeup look 34" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/35.jpg" alt="Makeup look 35" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/36.jpg" alt="Makeup look 36" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/37.jpg" alt="Makeup look 37" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/38.jpg" alt="Makeup look 38" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/39.jpg" alt="Makeup look 39" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/40.jpg" alt="Makeup look 40" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/41.jpg" alt="Makeup look 41" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/42.jpg" alt="Makeup look 42" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/43.jpg" alt="Makeup look 43" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/44.jpg" alt="Makeup look 44" loading="lazy" decoding="async"></figure>
+                <figure class="portfolio-tile portfolio-tile--hidden"><img src="assets/portfolio/45.jpg" alt="Makeup look 45" loading="lazy" decoding="async"></figure>
+            </div>
+            <div class="portfolio-more-wrap">
+                <button type="button" class="portfolio-more-btn" id="portfolio-more" aria-expanded="false" aria-controls="portfolio">Show more</button>
             </div>
         </section>
 
@@ -232,6 +260,18 @@
         <p>&copy; 2026 RED SIX NOW</p>
     </footer>
 
+    <script>
+        (function () {
+            var btn = document.getElementById('portfolio-more');
+            if (!btn) return;
+            var grid = document.querySelector('.portfolio-grid');
+            btn.addEventListener('click', function () {
+                grid.classList.add('is-expanded');
+                btn.setAttribute('aria-expanded', 'true');
+                btn.parentNode.removeChild(btn);
+            });
+        })();
+    </script>
     <script>
         // Reveal elements as they scroll into view. Skipped entirely when
         // the user has prefers-reduced-motion enabled.

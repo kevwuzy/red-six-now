@@ -229,6 +229,39 @@
     transform: scale(1.04);
 }
 
+.portfolio-tile--hidden {
+    display: none;
+}
+
+.portfolio-grid.is-expanded .portfolio-tile--hidden {
+    display: block;
+}
+
+.portfolio-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(24px, 3vw, 40px);
+}
+
+.portfolio-more-btn {
+    font-family: inherit;
+    font-size: clamp(14px, 1.2vw, 17px);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red);
+    background: transparent;
+    border: 1.5px solid var(--red);
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.portfolio-more-btn:hover,
+.portfolio-more-btn:focus-visible {
+    background: var(--red);
+    color: var(--bg);
+}
+
 /* ─────── Services ─────── */
 
 .services-list {

@@ -323,11 +323,6 @@
     background: rgba(122, 8, 8, 0.06);
 }
 
-.about-pillar--featured {
-    border-color: var(--red);
-    background: rgba(122, 8, 8, 0.06);
-}
-
 .about-pillar h3 {
     font-family: 'Freckle Face', cursive;
     font-weight: 400;
